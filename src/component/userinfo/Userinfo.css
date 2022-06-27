@@ -1,0 +1,92 @@
+.user_data_area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user_data {
+  width: 60rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.data_input {
+  margin: 1rem;
+}
+.data_input p {
+  font-size: 1.3rem;
+  margin-bottom: 7px;
+}
+.data_input .input_field {
+  width: 25rem;
+  height: 2rem;
+  margin-bottom: 1rem;
+  outline: none;
+  padding: 5px;
+  font-size: 1.6rem;
+  border:1.5px solid var(--primaryColor);
+  border-radius:3px;
+  font-family: inherit;
+}
+.bio_input {
+  width: 25rem;
+  height: 10rem;
+  outline: none;
+  padding: 5px;
+  font-size: 1.6rem;
+  font-family: inherit;
+  border:1.5px solid var(--primaryColor);
+  border-radius:3px;
+}
+.user_bio {
+  margin: 1rem;
+}
+.user_bio p {
+  font-size: 1.3rem;
+  margin-bottom: 7px;
+}
+.add_btn {
+  width: 100%;
+  text-align: center;
+}
+.add_btn button {
+  padding: 5px 1rem;
+  border: none;
+  background-color: var(--primaryColor);
+  border-radius: 5px;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.edit_btn {
+  padding: 5px 2rem;
+  border: none;
+  background-color: var(--primaryColor);
+  border-radius: 5px;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.user_info_area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.userdata {
+  margin: 2rem;
+}
+.userdata_name {
+  font-size: 2.8rem;
+}
+.userdata_email {
+  font-size: 1.6rem;
+}
+.userdata_bio {
+  font-size: 1.6rem;
+  margin: 2rem 0;
+}
+@media only screen and (max-width: 600px) {
+  .user_data {
+    width: 25rem;
+  }
+}

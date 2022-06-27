@@ -1,0 +1,23 @@
+.section_title {
+  font-size: 2.5rem;
+}
+.section_add_btn {
+  padding: 5px 10rem;
+  font-size: 1.6rem;
+  margin: 2rem;
+  background-color: var(--primaryColor);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.add_data_btn button {
+  padding: 5px 2rem;
+  margin: 1rem;
+  font-size: 1.4rem;
+  border: none;
+  background-color: var(--primaryColor);
+  border-radius: 5px;
+  color: var(--white);
+  cursor: pointer;
+}
