@@ -70,10 +70,22 @@
   margin-left: 2rem;
   margin-top: 3rem;
 }
+.tabs {
+  width: 100%;
+  height: 5rem;
+}
 .tabs h3 {
   font-size: 1.6rem;
-  padding: 5px 1rem;
-  border: 2px solid var(--primaryColor);
+}
+.data_tab {
   cursor: pointer;
-  border-radius: 5px;
+  height: 100%;
+  background-color: var(--grey);
+  width: 30%;
+}
+.clicked_data_tab{
+  cursor: pointer;
+  height: 100%;
+  background-color: var(--primaryColor);
+  width: 30%;
 }

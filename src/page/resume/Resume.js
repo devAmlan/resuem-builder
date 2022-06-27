@@ -10,7 +10,8 @@ function Resume() {
     const { education } = useContext(EducationContext)
     const { experience } = useContext(ExperienceContext)
     const { userdata } = useContext(UserdataContext)
-    const [resumedata] = useState({
+    const { uploadedfile, setUploadedfile } = useState([])
+    const [resumedata, setResumedata] = useState({
         name: userdata.name,
         email: userdata.email,
         bio: userdata.bio,
@@ -18,10 +19,30 @@ function Resume() {
         education: education,
         experience: experience
     })
+    const uploadfileHandler = (e) => {
 
+        const fileReader = new FileReader();
+        fileReader.readAsText(e.target.files[0], "UTF-8");
+        fileReader.onload = e => {
+            const target = e.target;
+            const result = target?.result;
+            const uploadeddata = JSON.parse(result)
+
+            setResumedata({
+                name: uploadeddata.name,
+                email: uploadeddata.email,
+                bio: uploadeddata.bio,
+                achievements: uploadeddata.achievements,
+                education: uploadeddata.education,
+                experience: uploadeddata.experience
+            })
+        }
+
+
+    }
     return (
         <div className="resume">
-            <div className="resume_btns">
+            <div className="resume_btns spacebtwn_flex">
                 <a
                     className='download_btn'
                     href={`data:text/json;charset=utf-8,${encodeURIComponent(
@@ -29,6 +50,15 @@ function Resume() {
                     )}`}
                     download="resume-data.json"
                 >Download</a>
+                <label htmlFor="fileInput">
+                    <div className='upload_btn center_flex'>Upload</div>
+                </label>
+                <input
+                    type="file"
+                    id="fileInput"
+                    onChange={uploadfileHandler}
+                />
+
             </div>
 
             <h1 className="resume_name">Name : {resumedata.name}</h1>

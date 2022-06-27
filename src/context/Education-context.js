@@ -1,6 +1,7 @@
 import React, { useState, createContext, useContext } from "react"
 import { v4 as uuidv4 } from "uuid"
 import { AchievementContext } from "./Achievement-context"
+import { toast } from "react-hot-toast"
 const EducationContext = createContext(null)
 function EducationProvider({ children }) {
     const { setOpen } = useContext(AchievementContext)
@@ -18,7 +19,9 @@ function EducationProvider({ children }) {
     const addeducationdataHandler = () => {
 
         if (edudata.institution === "" || edudata.degree === "" || edudata.startdate === "" || edudata.enddate === "" || edudata.description === "F") {
-            console.log('Fill')
+            toast.error('Please Complete the form', { style: {
+                fontSize:"16px"
+            } })
         }
         else if (edudata && edited) {
             setEducation(education.map((elem) => {
@@ -27,6 +30,7 @@ function EducationProvider({ children }) {
                 }
                 return { ...elem }
             }))
+            setOpen(false)
         }
         else {
             setEducation([...education,
@@ -39,6 +43,7 @@ function EducationProvider({ children }) {
                 description: edudata.description
             }
             ])
+            setOpen(false)
         }
         setEdudata({
             institution: "",
@@ -47,7 +52,7 @@ function EducationProvider({ children }) {
             enddate: "",
             description: ""
         })
-        setOpen(false)
+    
     }
     const deleteDataHandler = (_id) => {
         setEducation(education.filter(item => item._id !== _id))

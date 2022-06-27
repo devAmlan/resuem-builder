@@ -4,13 +4,18 @@ import { v4 as uuidv4 } from "uuid"
 import { IoCloseCircle } from "react-icons/io5"
 import Achievement from '../achievement/Achievement'
 import { AchievementContext } from "../../context/Achievement-context"
+import { toast } from "react-hot-toast"
 function Achievements() {
     const { edited, editedFieldId, open, setOpen, achievements, setAchievements, achievementdata, setAchievementdata } = useContext(AchievementContext)
 
     const addachievementhandler = async () => {
 
         if (achievementdata.title === "" || achievementdata.description === "" || achievementdata.date === "") {
-            console.log('Blank')
+            toast.error('Please Complete the form', {
+                style: {
+                    fontSize: "16px"
+                }
+            })
         }
         else if (achievementdata && edited === true) {
             setAchievements(achievements.map((item) => {

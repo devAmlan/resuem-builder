@@ -36,11 +36,29 @@
   padding: 7px 1rem;
   border: none;
   text-decoration: none;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: var(--white);
   background-color: var(--primaryColor);
   border-radius: 5px;
+  cursor: pointer;
 }
-.resume_btns{
-  margin:2rem;
+.resume_btns {
+  margin: 2rem;
+  width:25rem;
+}
+.resume_btns > input {
+  display: none;
+}
+
+.upload_btn {
+  margin: 1rem;
+  width: 9rem;
+  height: 3.4rem;
+  border: none;
+  text-align:center;
+  font-size: 1.5rem;
+  color: var(--white);
+  background-color: var(--primaryColor);
+  border-radius: 5px;
+  cursor: pointer;
 }

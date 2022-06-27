@@ -3,6 +3,8 @@ import { IoCloseCircle } from "react-icons/io5"
 import { AchievementContext } from "../../context/Achievement-context"
 import { ExperienceContext } from '../../context/Experience-context'
 import Expdata from '../expdata/Expdata'
+
+
 function Experience() {
     const { open, setOpen } = useContext(AchievementContext)
     const { setExpdata, expdata, addExperienceHandler, experience } = useContext(ExperienceContext)

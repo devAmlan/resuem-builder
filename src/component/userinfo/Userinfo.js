@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import "./Userinfo.css"
-import { ToastContainer, toast } from "react-toastify"
+import { toast } from "react-hot-toast"
 import 'react-toastify/dist/ReactToastify.css';
 import { UserdataContext } from "../../context/Userdata-context"
 function Userinfo() {
@@ -10,7 +10,11 @@ function Userinfo() {
 
     const adduserdataHandler = () => {
         if (userdata.name === "" || userdata.email === "" || userdata.bio === "") {
-            toast.error("Please fill the form")
+            toast.error("Please complete the form",{
+                style:{
+                    fontSize:"16px"
+                }
+            })
         } else {
             setSaved(true)
         }
@@ -18,7 +22,6 @@ function Userinfo() {
     }
     return (
         <>
-            <ToastContainer />
             {saved ?
                 <>
 

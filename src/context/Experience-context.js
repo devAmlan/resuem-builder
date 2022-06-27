@@ -1,6 +1,7 @@
 import React, { useState, createContext, useContext } from "react"
 import { v4 as uuidv4 } from "uuid"
 import { AchievementContext } from "./Achievement-context"
+import { toast } from "react-hot-toast"
 const ExperienceContext = createContext(null)
 function ExperienceProvider({ children }) {
     const [experience, setExperience] = useState([])
@@ -16,7 +17,9 @@ function ExperienceProvider({ children }) {
     })
     const addExperienceHandler = async () => {
         if (expdata.company === "" || expdata.role === "" || expdata.startdate === "" || expdata.enddate === "" || expdata.description === "") {
-            console.log('Empty')
+            toast.error('Please Complete the form', { style: {
+                fontSize:"16px"
+            } })
         } else if (expdata && edited) {
             setExperience(experience.map((elem) => {
                 if (elem._id === editedFieldId) {

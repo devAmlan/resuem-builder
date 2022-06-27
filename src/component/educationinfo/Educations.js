@@ -4,11 +4,13 @@ import { IoCloseCircle } from "react-icons/io5"
 import { EducationContext } from "../../context/Education-context"
 import { AchievementContext } from "../../context/Achievement-context"
 import Edudata from "../edudata/EduData"
+
 function Educations() {
     const { open, setOpen } = useContext(AchievementContext)
-    const { edudata,setEdudata, education, addeducationdataHandler } = useContext(EducationContext)
+    const { edudata, setEdudata, education, addeducationdataHandler } = useContext(EducationContext)
     return (
-        <>
+        <> 
+        
             <button className='section_add_btn' onClick={() => { setOpen(true) }}>Add new</button>
             {open ?
                 <div className="modal">
