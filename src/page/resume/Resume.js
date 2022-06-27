@@ -5,12 +5,13 @@ import { ExperienceContext } from "../../context/Experience-context"
 import { UserdataContext } from "../../context/Userdata-context"
 import { Link } from 'react-router-dom'
 import "./Resume.css"
+import { toast } from 'react-toastify'
+
 function Resume() {
     const { achievements } = useContext(AchievementContext)
     const { education } = useContext(EducationContext)
     const { experience } = useContext(ExperienceContext)
     const { userdata } = useContext(UserdataContext)
-    const { uploadedfile, setUploadedfile } = useState([])
     const [resumedata, setResumedata] = useState({
         name: userdata.name,
         email: userdata.email,
@@ -20,25 +21,28 @@ function Resume() {
         experience: experience
     })
     const uploadfileHandler = (e) => {
+   
+        if (e.target.files[0].type === 'application/json') {
+            const fileReader = new FileReader();
+            fileReader.readAsText(e.target.files[0], "UTF-8");
+            fileReader.onload = e => {
+                const target = e.target;
+                const result = target?.result;
+                const uploadeddata = JSON.parse(result)
 
-        const fileReader = new FileReader();
-        fileReader.readAsText(e.target.files[0], "UTF-8");
-        fileReader.onload = e => {
-            const target = e.target;
-            const result = target?.result;
-            const uploadeddata = JSON.parse(result)
+                setResumedata({
+                    name: uploadeddata.name,
+                    email: uploadeddata.email,
+                    bio: uploadeddata.bio,
+                    achievements: uploadeddata.achievements,
+                    education: uploadeddata.education,
+                    experience: uploadeddata.experience
+                })
+            }
 
-            setResumedata({
-                name: uploadeddata.name,
-                email: uploadeddata.email,
-                bio: uploadeddata.bio,
-                achievements: uploadeddata.achievements,
-                education: uploadeddata.education,
-                experience: uploadeddata.experience
-            })
+        } else {
+            toast.error('Please Upload Json file')
         }
-
-
     }
     return (
         <div className="resume">
@@ -103,7 +107,7 @@ function Resume() {
                 </> : <><Link to="/"><h3>Add data here</h3></Link></>}
             </div>
             <div className="resume_achievement">
-                <h2 className='section_heading'>Education</h2>
+                <h2 className='section_heading'>Achievements</h2>
                 <hr className='section_division' />
                 {resumedata.achievements.length > 0 ?
                     <>

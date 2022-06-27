@@ -2,7 +2,7 @@
   font-size: 1.7rem;
 }
 .user_other_data {
-  width: 40rem;
+  width: 70rem;
   padding: 1rem;
   border: 2px solid var(--primaryColor);
   border-radius: 8px;
@@ -32,7 +32,10 @@
   color: var(--white);
   cursor: pointer;
 }
-
+.accordion_btn{
+  font-size:2rem;
+  margin:0 1rem;
+}
 @media only screen and (max-width: 600px) {
   .user_other_data {
     width: 25rem;

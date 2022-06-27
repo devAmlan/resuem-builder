@@ -7,7 +7,7 @@ import Experience from '../../component/experience/Experience'
 import { AchievementContext } from "../../context/Achievement-context"
 import { EducationContext } from "../../context/Education-context"
 import { ExperienceContext } from "../../context/Experience-context"
-import { Toaster } from "react-hot-toast"
+
 
 function Home() {
     const [tab, setTab] = useState("education")
@@ -16,7 +16,6 @@ function Home() {
     const { experience } = useContext(ExperienceContext)
     return (
         <>
-            <Toaster />
             <Userinfo />
             <hr className='divider' />
             <div className="tabs spaced_flex">

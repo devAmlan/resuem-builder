@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import "./Educations.css"
+
 import { IoCloseCircle } from "react-icons/io5"
 import { EducationContext } from "../../context/Education-context"
 import { AchievementContext } from "../../context/Achievement-context"

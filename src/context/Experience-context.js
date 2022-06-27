@@ -17,9 +17,11 @@ function ExperienceProvider({ children }) {
     })
     const addExperienceHandler = async () => {
         if (expdata.company === "" || expdata.role === "" || expdata.startdate === "" || expdata.enddate === "" || expdata.description === "") {
-            toast.error('Please Complete the form', { style: {
-                fontSize:"16px"
-            } })
+            toast.error('Please Complete the form', {
+                style: {
+                    fontSize: "16px"
+                }
+            })
         } else if (expdata && edited) {
             setExperience(experience.map((elem) => {
                 if (elem._id === editedFieldId) {
@@ -33,15 +35,16 @@ function ExperienceProvider({ children }) {
                     }
                 }
                 return { ...elem }
+
             }))
 
-            setExpdata({
-                company: "",
-                role: "",
-                startdate: "",
-                enddate: "",
-                description: ""
-            })
+            // setExpdata({
+            //     company: "",
+            //     role: "",
+            //     startdate: "",
+            //     enddate: "",
+            //     description: ""
+            // })
             setOpen(false)
         }
         else {
@@ -55,6 +58,7 @@ function ExperienceProvider({ children }) {
                 description: expdata.description
             }
             ])
+            setOpen(false)
         }
         setExpdata({
             company: "",
@@ -63,7 +67,7 @@ function ExperienceProvider({ children }) {
             enddate: "",
             description: ""
         })
-        setOpen(false)
+
     }
     const deleteDataHandler = async (_id) => {
         setExperience(experience.filter(item => item._id !== _id))

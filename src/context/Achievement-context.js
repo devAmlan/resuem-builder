@@ -12,6 +12,7 @@ function AchievementProvider({ children }) {
 
     const [editedFieldId, setEditedFieldId] = useState(null)
     const [edited, setEdited] = useState(false)
+    const [active, setActive] = useState(false)
     const deleteDataHandler = async (_id) => {
 
         setAchievements(achievements.filter(item => item._id !== _id))
@@ -23,7 +24,7 @@ function AchievementProvider({ children }) {
         setEditedFieldId(achievementinfo._id)
     }
     return (
-        <AchievementContext.Provider value={{ editedFieldId, open, setOpen, achievements, setAchievements, achievementdata, setAchievementdata, deleteDataHandler, editDataHandler, edited, setEdited }}>
+        <AchievementContext.Provider value={{ editedFieldId, open, setOpen, achievements, setAchievements, achievementdata, setAchievementdata, deleteDataHandler, editDataHandler, edited, setEdited,active, setActive }}>
             {children}
         </AchievementContext.Provider>)
 }
